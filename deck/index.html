@@ -376,7 +376,42 @@
     <div class="slide-footer"><span>10 / 10</span></div>
   </section>
 
+  <!-- 11 End -->
+  <section data-screen-label="11 End">
+    <img src="./assets/khabaroff-poster.jpg" style="position:absolute; right:96px; top:56px; height:50%; width:auto; object-fit:contain; object-position:top;">
+    <div class="title-stack" style="position:relative; z-index:1;">
+      <img src="./assets/qr-telegram.png" style="width:320px; height:320px; object-fit:contain; margin-bottom:32px; display:block;">
+      <h1 class="slide-title-xl">Спасибо</h1>
+      <p class="title-meta" style="margin-top:32px; font-family:var(--font-display); font-size:40px; letter-spacing:-0.01em; text-transform:none; color:var(--text-secondary);">Сергей Хабаров</p>
+      <p class="title-meta" style="margin-top:8px;">стартапер · консультант · методолог · обучатор в области AI</p>
+      <div class="slide-links">
+        <a target="_blank" rel="noopener noreferrer" href="https://t.me/khabaroff">→ @khabaroff</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://t.me/alliknowisthatidontknownothing">→ телеграм-канал</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://khabaroff.com/">→ khabaroff.com</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/khabaroff/horseference">→ Все промпты и материалы</a>
+      </div>
+    </div>
+    <div class="slide-footer" style="position:relative; z-index:1;"></div>
+  </section>
+
 </deck-stage>
 <script src="./deck-stage.js"></script>
+<script>
+(function() {
+  var stage = document.querySelector('deck-stage');
+  var startX, startY;
+  stage.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+  stage.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      stage._advance(dx < 0 ? 1 : -1, 'swipe');
+    }
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
