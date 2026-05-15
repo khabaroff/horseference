@@ -124,10 +124,9 @@
     .tapzones {
       position: fixed;
       inset: 0;
-      display: flex;
+      display: none;
       z-index: 2147482000;
       pointer-events: none;
-      display: none;
     }
     .tapzone {
       flex: 1;
@@ -135,8 +134,8 @@
       -webkit-tap-highlight-color: transparent;
     }
     /* Only activate tap zones on coarse pointers (touch devices). */
-    @media (hover: hover) and (pointer: fine) {
-      .tapzones { display: none; }
+    @media (hover: none) and (pointer: coarse) {
+      .tapzones { display: flex; }
     }
 
     .overlay {
