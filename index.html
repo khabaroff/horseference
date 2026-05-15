@@ -377,10 +377,8 @@
 
   <!-- 11 Video -->
   <section data-screen-label="11 Video" style="padding:0; background:#000;">
-    <video src="./CleanShot-2026-03-24--23-06-36-converted.mp4"
-           loop muted playsinline
-           style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain;">
-    </video>
+    <img src="./assets/video-screenshot.jpg"
+         style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain;">
   </section>
 
   <!-- 12 End -->
@@ -403,21 +401,5 @@
 
 </deck-stage>
 <script src="./deck-stage.js"></script>
-<script>
-(function() {
-  document.querySelectorAll('deck-stage section').forEach(function(section) {
-    new MutationObserver(function() {
-      var video = section.querySelector('video');
-      if (!video) return;
-      if (section.hasAttribute('data-deck-active')) {
-        video.play().catch(function(){});
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    }).observe(section, { attributes: true, attributeFilter: ['data-deck-active'] });
-  });
-})();
-</script>
 </body>
 </html>
